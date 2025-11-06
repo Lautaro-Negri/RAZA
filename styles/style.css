@@ -1,0 +1,507 @@
+/* =================================== */
+/* 0. RESET Y VARIABLES GLOBALES */
+/* =================================== */
+:root {
+    --color-negro-raza: #1A1A1A;      /* Color Primario: Negro Fuerte */
+    --color-acento-raza: #760000;     /* Color de Acento: Rojo Deportivo */
+    --color-blanco: #FFFFFF;
+    --color-gris-claro: #282828;
+
+    --font-heading: 'Helvetica', Arial, sans-serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    background-color: var(--color-gris-claro);
+    color: var(--color-negro-raza);
+    /* ▼▼▼ AÑADE ESTAS LÍNEAS ▼▼▼ */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Clave: el body mide al menos 100% de la pantalla */
+
+    background-image: url("../img/patron1cortado.jpg"); /* (Reemplaza con tu ruta) */
+    background-repeat: repeat; /* Esto hace que se repita */
+    background-size: 300px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-style: oblique;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+}
+
+/* =================================== */
+/* 1. HEADER Y NAVEGACIÓN (Modificado) */
+/* =================================== */
+
+.main-header {
+    background-color: var(--color-negro-raza);
+    color: var(--color-blanco);
+    display: flex;
+    justify-content: space-between; /* Clave para el centrado de 3 columnas */
+    align-items: center;
+    padding: 10px 3%; /* 3% de padding a los lados */
+    border-bottom: 2px solid var(--color-acento-raza); /* Detalle de marca */
+}
+
+/* --- Columna 1: Logo --- */
+.logo {
+    flex-basis: 150px; /* Dale un ancho fijo al contenedor del logo */
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.logo-img {
+    height: 45px; /* Ajusta la altura de tu logo */
+    width: auto; /* Mantiene la proporción */
+    display: block; /* Evita espacios extra debajo de la imagen */
+}
+
+/* --- Columna 2: Navegación Central --- */
+.main-nav-center {
+    flex-grow: 1; /* Permite que la navegación ocupe el espacio central */
+}
+
+.nav-list {
+    list-style: none; /* Quita los puntos de la lista */
+    display: flex;
+    justify-content: center; /* Centra los items en el contenedor */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    position: relative; /* Clave para el dropdown */
+    margin: 0 15px; /* Espacio entre items del menú */
+}
+
+.nav-link {
+    display: block;
+    padding: 15px 5px; /* Área de click más grande */
+    color: var(--color-blanco);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--color-acento-raza);
+}
+
+/* --- Columna 3: Carrito (Reemplaza a .header-spacer) --- */
+.header-cart {
+    /* flex-basis: 150px; <-- BORRA O COMENTA ESTA LÍNEA */
+    /* flex-shrink: 0;  <-- BORRA O COMENTA ESTA LÍNEA */
+    /* display: flex;     <-- BORRA O COMENTA ESTA LÍNEA (si la tienes) */
+    /* justify-content: flex-end; <-- BORRA O COMENTA ESTA LÍNEA (si la tienes) */
+    
+    /* El resto de tus reglas (position: relative, cursor: pointer) quedan igual */
+    position: relative; 
+    cursor: pointer;
+}
+
+.cart-link {
+    display: flex;
+    align-items: center;
+    color: var(--color-blanco);
+    text-decoration: none;
+    position: relative; /* Para posicionar el contador */
+}
+
+.cart-icon {
+    font-size: 1.8rem; /* Tamaño del emoji */
+}
+
+/* El contador '0' */
+.cart-count {
+    background-color: var(--color-acento-raza);
+    color: var(--color-blanco);
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+    position: absolute; /* Lo posiciona sobre el carrito */
+    top: -5px;
+    right: -10px;
+    border: 2px solid var(--color-negro-raza); /* Para separarlo del fondo */
+}
+
+
+/* =================================== */
+/* 1.5 LÓGICA DEL DROPDOWN (NUEVO)   */
+/* =================================== */
+
+/* Contenedor del sub-menú (oculto por defecto) */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Flota sobre el contenido */
+    top: 100%; /* Justo debajo del item "Tienda" */
+    left: 0;
+    background-color: var(--color-negro-raza); /* Fondo del dropdown */
+    min-width: 200px; /* Ancho mínimo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    border-top: 2px solid var(--color-acento-raza); /* Detalle de marca */
+    padding: 0;
+    margin: 0;
+}
+
+/* Mostrar el dropdown cuando se hace hover sobre el .nav-item.dropdown */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Estilo de los items dentro del dropdown */
+.dropdown-content li {
+    list-style: none;
+}
+
+.dropdown-content li a {
+    display: block;
+    color: var(--color-blanco);
+    padding: 12px 15px;
+    text-align: left; /* Alinea el texto a la izquierda */
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content li a:hover {
+    background-color: var(--color-acento-raza);
+    color: var(--color-blanco);
+}
+
+/* =================================== */
+/* 2. BOTONES GENERALES (Componente) */
+/* =================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--color-acento-raza);
+    color: var(--color-blanco);
+}
+
+.btn-primary:hover {
+    background-color: #e6392f; /* Tono más oscuro del acento */
+}
+
+.btn-secondary {
+    background-color: var(--color-negro-raza);
+    color: var(--color-blanco);
+}
+
+.btn-secondary:hover {
+    background-color: #333;
+}
+/* =================================== */
+/* 4. MAIN CONTENT (Contenido principal) */
+/* =================================== */
+main {
+    flex-grow: 1; /* Clave: 'main' crece para ocupar el espacio sobrante */
+}
+
+/* =================================== */
+/* 5. FOOTER */
+/* =================================== */
+.main-footer {
+    background-color: var(--color-negro-raza);
+    color: var(--color-blanco);
+    padding: 30px 5%;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: var(--color-blanco);
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--color-acento-raza);
+}
+
+.main-footer p {
+    margin-top: 15px;
+}
+
+/* =================================== */
+/* 6. NUEVO: ESTILOS DEL MINI-CARRITO  */
+/* =================================== */
+.mini-cart-container {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 65px; /* Ajusta esto a la altura de tu header */
+    right: 3%; /* Alineado con el ícono del carrito */
+    width: 320px; /* Ancho del panel */
+    background-color: var(--color-blanco);
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 0px;
+    z-index: 100;
+}
+
+/* Clase que JS añadirá para mostrar el panel */
+.mini-cart-container.visible {
+    display: block;
+}
+
+.mini-cart-container h4 {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    font-style: oblique;
+    padding: 15px;
+    margin: 0;
+    background-color: var(--color-blanco);
+    border-bottom: 1px solid #ddd;
+}
+
+/* Contenedor de los items */
+#mini-cart-items {
+    max-height: 300px; /* Evita que sea muy largo */
+    overflow-y: auto; /* Scroll si hay muchos items */
+    padding: 10px;
+}
+
+/* Estilo de cada item en el carrito */
+.mini-cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid var(--color-gris-claro);
+    font-size: 0.9rem;
+}
+
+.mini-cart-item span {
+    flex: 1;
+}
+
+.mini-cart-item span:first-child { /* El nombre */
+    flex-basis: 60%;
+}
+
+.mini-cart-item .remove-item {
+    flex-basis: 10%;
+    text-align: right;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #999;
+    transition: color 0.2s;
+}
+
+.mini-cart-item .remove-item:hover {
+    color: var(--color-acento-raza);
+}
+
+/* Footer del carrito (Botón) */
+#mini-cart-footer {
+    padding: 15px;
+    background-color: var(--color-blanco);
+    border-top: 1px solid #ddd;
+    text-align: center;
+}
+
+.btn-hacer-pedido {
+    width: 100%;
+}
+
+/* =================================== */
+/* 7. NUEVO MAIN - BANNER HERO         */
+/* =================================== */
+
+/* Contenedor del enlace */
+.hero-banner-link {
+    display: block; /* Se asegura que el enlace ocupe todo el ancho */
+    width: 100%;
+    line-height: 0; /* Soluciona un pequeño espacio fantasma debajo de las imágenes */
+}
+
+/* La imagen dentro del enlace */
+.hero-banner-img {
+    width: 100%;      /* Ocupa el 100% del ancho de su contenedor (el <a>) */
+    height: auto;     /* Mantiene la proporción de la imagen automáticamente */
+    display: block;   /* Asegura que se comporte como un bloque */
+}
+
+/* =================================== */
+/* 8. GRUPO DERECHA Y MENÚ RESPONSIVE  */
+/* =================================== */
+
+/* Nuevo grupo para carrito y hamburguesa */
+.header-right-side {
+    flex-basis: 150px; /* Le damos el ancho fijo al grupo */
+    flex-shrink: 0;
+    display: flex;
+    justify-content: flex-end; /* Alinea los íconos a la derecha */
+    align-items: center;
+    gap: 20px; /* Espacio entre carrito y burger */
+}
+
+/* Estilos del botón hamburguesa */
+.burger-menu {
+    display: none; /* Oculto en desktop por defecto */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    z-index: 200; /* Asegura que esté por encima del menú desplegable */
+}
+
+.burger-line {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-blanco);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Animación de la hamburguesa (cuando tiene la clase 'burger-active') */
+.burger-active .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+.burger-active .burger-line:nth-child(2) {
+    opacity: 0;
+}
+.burger-active .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+/* === Media Query para Móviles === */
+/* (Puedes ajustar 768px si lo necesitas) */
+@media (max-width: 768px) {
+
+    .main-header {
+        position: relative; /* Necesario para el menú flotante */
+    }
+    
+    /* 1. Mostrar la hamburguesa */
+    .burger-menu {
+        display: flex; 
+    }
+
+    /* 2. Ajustar el grupo derecho en móvil */
+    .header-right-side {
+        flex-basis: auto; /* Deja que se ajuste al contenido */
+    }
+
+    /* 3. Ocultar la navegación de escritorio (YA NO SE OCULTA CON DISPLAY:NONE) */
+    /* .main-nav-center { <-- BORRAMOS ESTA REGLA
+        display: none;
+    } */
+
+    /* 4. Estilos del panel de navegación móvil (AHORA ES .main-nav-center) */
+    .main-nav-center {
+        /* Lo sacamos del flujo normal */
+        position: absolute;
+        top: 65px; /* Ajusta esto a la altura de tu header */
+        left: 0;
+        width: 100%;
+
+        /* Oculto por defecto (fuera de la pantalla) */
+        transform: translateY(-120%);
+        transition: transform 0.4s ease-in-out;
+        z-index: 100;
+
+        /* Apariencia (esto se aplica al <nav> que ahora es el panel) */
+        background-color: var(--color-negro-raza);
+        border-bottom: 2px solid var(--color-acento-raza);
+    }
+
+    /* 5. ESTA ES LA CLASE QUE JS VA A AÑADIR (al .main-nav-center) */
+    .main-nav-center.nav-active {
+        transform: translateY(0); /* Lo trae a la vista */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    }
+
+    /* 6. Estilos de la lista y los items (que están DENTRO del panel) */
+    .nav-list {
+        /* Ahora solo le decimos que sea vertical */
+        flex-direction: column;
+    }
+
+    .nav-item {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #333; /* Separador */
+    }
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+
+    .nav-link {
+        padding: 20px; /* Más área de toque */
+    }
+
+    /* 7. RE-ESTILIZAR LOS DROPDOWNS EN MÓVIL */
+    .dropdown-content {
+        /* Anulamos el ocultamiento y la posición absoluta */
+       display: block !important; /* ¡Importante! Lo forzamos a verse */
+       position: static; /* Deja de flotar y se queda en el flujo */
+
+       /* Lo hacemos ver como un sub-menú */
+        width: 100%;
+        background-color: #111; /* Un color de fondo más oscuro */
+       box-shadow: none; /* Quitamos sombra */
+       border-top: none; /* Quitamos borde */
+       min-width: 0;
+        padding: 0; /* Reseteo */
+    }
+
+    /* Quitamos el hover (ya no aplica) */
+    .dropdown:hover .dropdown-content {
+        display: block !important;
+    }
+
+    /* Estilos de los sub-items (los links del dropdown) */
+    .dropdown-content li {
+       border-bottom: 1px solid #333; /* Separador de sub-items */
+    }
+    .dropdown-content li:last-child {
+        border-bottom: none; /* El último no lleva */
+    }
+
+    .dropdown-content li a {
+        /* Le damos sangría para que se vea como sub-item */
+        padding-left: 40px !important; 
+        text-align: left; /* Alineamos a la izquierda */
+        color: #ccc; /* Un color más suave */
+    }
+
+    .dropdown-content li a:hover {
+        background-color: var(--color-acento-raza); /* Mantenemos el hover */
+        color: var(--color-blanco);
+    }
+
+    /* Opcional: Le damos un estilo diferente al link "Tienda" para que se entienda que es un título */
+    .dropdown > .nav-link {
+       color: var(--color-acento-raza); /* Color de acento */
+        font-weight: bold;
+        /* Evita el borde duplicado */
+        border-bottom: none; 
+    }
+}

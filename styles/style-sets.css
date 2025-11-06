@@ -1,0 +1,109 @@
+/* =================================== */
+/* 11. ESTILOS DE PÁGINA "SETS"        */
+/* =================================== */
+
+.sets-container {
+    max-width: 1500px;
+    margin: 40px auto;
+    padding: 0px 20px;
+    background-color: var(--color-gris-claro);
+}
+
+.sets-container h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--color-blanco);
+}
+
+.sets-container p {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--color-blanco);
+}
+
+.sets-grid {
+    display: grid;
+    /* En pantallas grandes se ve 2x2 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Esta es la tarjeta-enlace (la <a>) */
+.set-card {
+    display: block; /* Para que la <a> ocupe espacio */
+    text-decoration: none;
+    background-color: var(--color-gris-claro);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.set-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* La imagen dentro de la tarjeta */
+.set-card img {
+    width: 100%;
+    height: 300px; /* Alto fijo para las imágenes de categoría */
+    object-fit: cover; /* Cubre el espacio sin deformarse */
+    display: block;
+}
+
+/* El título de la tarjeta */
+.set-card h3 {
+    font-family: var(--font-heading);
+    font-style: oblique;
+    font-size: 1.8rem;
+    color: var(--color-blanco);
+    padding: 20px;
+    text-align: center;
+    margin: 0;
+    /* CORRECCIÓN: Esta línea era invisible y se eliminó */
+    /* border-top: 1px solid var(--color-gris-claro); */
+}
+
+/* =================================== */
+/* 12. ESTILOS SEGUNDO CONTENEDOR SETS */
+/* =================================== */
+
+/* Espacio extra arriba para separar los dos contenedores */
+.sets-container-wide {
+    margin-top: 60px; /* Puedes ajustar este espacio */
+}
+
+/* Grilla especial para solo 2 items */
+.sets-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px; /* <-- CORRECCIÓN: Estaba en 125px */
+
+    /* --- LA CLAVE DEL ESPACIADO ---
+       Limitamos el ancho de esta grilla en pantallas grandes
+       y la centramos. Esto evita que los 2 items se estiren
+       de punta a punta y crea márgenes a los lados.
+    */
+    max-width: 780px; /* (ej. 2 tarjetas de 350px + 25px de gap) */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Responsive para móviles === */
+@media (max-width: 768px) {
+    .sets-grid,
+    .sets-grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .set-card img {
+        height: 250px; /* Un poco más bajo en móviles */
+    }
+
+    .set-card h3 {
+        font-size: 1.5rem;
+    }
+}

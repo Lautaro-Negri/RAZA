@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAZA - Tienda</title>
+    
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <link rel="stylesheet" href="styles/style-tienda.css">
+    
+</head>
+<body>
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/LogoHeaderBlanco.png" alt="Logo RAZA Indumentaria" class="logo-img">
+            </a>
+        </div>
+    
+        <nav class="main-nav-center" id="main-nav-container">
+            <ul class="nav-list" id="main-nav-list"> 
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link">Tienda</a>
+                     <ul class="dropdown-content">
+                        <li><a href="sets-institucionales.html">Nuestras Líneas</a></li>
+                        <li><a href="#">Accesorios</a></li>
+                        <li><a href="#">Personalizados</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Solicitar pedido</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Quienes somos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="formulario.html" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="header-right-side">
+            <div class="header-cart" id="cart-icon-button">
+                <span class="cart-icon">🛒</span>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+            <div class="burger-menu" id="burger-button">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mini-cart" class="mini-cart-container">
+        <h4>Mi Pedido</h4>
+        <div id="mini-cart-items"></div>
+        <div id="mini-cart-footer">
+            <button class="btn btn-primary btn-hacer-pedido" id="btn-hacer-pedido">Hacer Pedido</button>
+        </div>
+    </div>
+
+    <main>
+        <div class="shop-container">
+            <h2>Nuestra Tienda</h2>
+            
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <img src="img/set1.png" alt="Camiseta Deportiva">
+                    <div class="product-info">
+                        <h3>Set potrero</h3>
+                        <p class="product-price">$15000</p>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-nombre="Set potrero" 
+                                data-precio="15000">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/set2.png" alt="Short de Fútbol">
+                    <div class="product-info">
+                        <h3>set cenit</h3>
+                        <p class="product-price">$9500</p>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-nombre="set cenit" 
+                                data-precio="9500">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/set3.png" alt="Medias Deportivas">
+                    <div class="product-info">
+                        <h3>set insignia</h3>
+                        <p class="product-price">$4000</p>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-nombre="set insignia" 
+                                data-precio="4000">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/producto-campera.jpg" alt="Campera Rompeviento">
+                    <div class="product-info">
+                        <h3>set abgrigo y entreno</h3>
+                        <p class="product-price">$22000</p>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-nombre="set abgrigo y entreno" 
+                                data-precio="22000">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/producto-campera.jpg" alt="Campera Rompeviento">
+                    <div class="product-info">
+                        <h3>set institucional</h3>
+                        <p class="product-price">$22000</p>
+                        <button class="btn btn-primary add-to-cart" 
+                                data-nombre="set institucional" 
+                                data-precio="22000">
+                            Añadir al Carrito
+                        </button>
+                    </div>
+                </div>
+                
+            </div></div></main>
+
+    <footer class="main-footer">
+        <div class="footer-links">
+            <a href="#">Términos y Condiciones</a>
+            <a href="#">Preguntas Frecuentes</a>
+            <a href="#">Área de Clubes</a>
+        </div>
+        <p>&copy; 2025 RAZA Indumentaria Deportiva. | Desarrollado con pasión.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
