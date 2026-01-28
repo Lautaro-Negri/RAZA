@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 5. Función para cargar tu script.js principal
   const loadMainScript = () => {
     const script = document.createElement("script");
-    script.src = "/js/script.js";
+    script.src = "js/script.js";
 
     // ▼▼▼ ESTA ES LA PARTE NUEVA Y MÁS IMPORTANTE ▼▼▼
     script.onload = () => {
