@@ -1,0 +1,189 @@
+/* =================================== */
+/* ESTILOS TIENDA V2 (OPTIMIZADO)      */
+/* =================================== */
+
+/* 1. Banner Superior Compacto */
+.tienda-banner {
+  width: 100%;
+  color: var(--color-blanco);
+  padding: 40px 3% 10px 3%; /* Reducimos padding inferior */
+  text-align: center;
+}
+
+
+
+.tienda-banner p {
+  font-size: 1.2rem;
+  color: #ccc; /* Color más suave */
+  margin-bottom: 20px;
+}
+
+/* (Eliminamos .banner-image-grid porque ya no existe en el HTML) */
+
+
+/* 2. Contenedor General */
+.presentation-container {
+  max-width: 1500px; /* Antes era 1300px */
+  margin: 20px auto 60px auto;
+  padding: 0 20px;
+}
+
+/* Estilo base de la tarjeta */
+.set-presentation {
+  display: flex;
+  align-items: stretch; /* Para que imagen y texto tengan misma altura si están side-by-side */
+  gap: 40px;
+  margin-bottom: 60px;
+  background-color: var(--color-negro-raza);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid var(--color-acento-raza);
+  transition: transform 0.3s ease;
+}
+
+/* Hover suave para todas las tarjetas */
+.set-presentation:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.set-image {
+  flex-basis: 55%;
+  flex-shrink: 0;
+  position: relative; /* Para ajustar la imagen */
+}
+
+.set-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Clave para que llene el espacio */
+  display: block;
+}
+
+.set-details {
+  flex-basis: 45%;
+  padding: 40px;
+  color: var(--color-blanco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+}
+
+/* Layout Inverso (Zig-Zag) - Se mantiene para secciones individuales */
+.set-presentation.reverse {
+  flex-direction: row-reverse;
+}
+
+
+/* --- NUEVO: GRILLA PRINCIPAL (3 COLUMNAS) --- */
+/* Esto fusiona el concepto de banner + presentación */
+.main-lines-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  gap: 25px;
+}
+
+/* Ajustes de la tarjeta cuando está dentro de la grilla */
+.main-lines-grid .set-presentation {
+  flex-direction: column; /* Imagen arriba, texto abajo */
+  margin-bottom: 0; /* El gap de la grilla se encarga del espacio */
+  height: 100%; /* Para que todas tengan la misma altura */
+}
+
+.main-lines-grid .set-image {
+  height: 380px; /* Antes era 250px. ¡Gran cambio visual! */
+  flex-basis: auto;
+  border-bottom: 1px solid #333; /* Opcional: separa sutilmente la imagen del texto */
+}
+
+.main-lines-grid .set-details {
+  padding: 30px; /* Un poco más de "aire" interno */
+  flex-basis: auto;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.main-lines-grid .set-details ul {
+  margin-bottom: 20px;
+}
+
+.main-lines-grid .set-details li {
+  font-size: 0.95rem; /* Texto un poco más chico para que entre bien */
+  margin-bottom: 10px;
+}
+
+
+/* --- ESTILOS DE TEXTO Y BOTONES --- */
+.set-details h2 {
+  font-size: 2rem;
+  font-style: oblique;
+  color: var(--color-blanco);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+}
+
+.set-details ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 30px;
+}
+
+.set-details li {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  padding-left: 25px;
+  position: relative;
+  color: #ccc;
+}
+
+.set-details li::before {
+  content: '✓';
+  color: var(--color-acento-raza);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.set-details .btn {
+  width: 100%; /* Botón ancho completo en las tarjetas */
+  text-align: center;
+}
+
+
+
+
+/* 5. Divisores de Sección */
+
+
+/* =================================== */
+/* RESPONSIVE PARA MÓVILES             */
+/* =================================== */
+@media (max-width: 900px) {
+  /* En tablets y móviles, todo vuelve a ser 1 columna */
+  .main-lines-grid,
+  .presentation-container.grid-2-cols {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reseteamos el comportamiento del último hijo impar */
+  .grid-2-cols .set-presentation:last-child:nth-child(odd) {
+    flex-direction: column;
+  }
+  .grid-2-cols .set-presentation:last-child:nth-child(odd) .set-image {
+    height: 250px;
+  }
+
+  .set-presentation.reverse {
+    flex-direction: column; /* Apilar en móvil */
+  }
+
+  .set-image {
+    height: 250px; /* Altura consistente en móvil */
+  }
+  
+
+}

@@ -1,0 +1,279 @@
+/* RAZAWEB/styles/style-guantes.css */
+
+/* TÍTULO PRINCIPAL DE LA COLECCIÓN */
+.collection-title {
+  text-align: center;
+  font-family: var(--font-heading); /* Usa tu tipografía Helvetica/Arial */
+  font-size: 4rem; /* Tamaño grande e impactante */
+  font-weight: 900; /* Extra negrita */
+  font-style: italic; /* Inclinación deportiva */
+  text-transform: uppercase;
+  letter-spacing: -2px; /* Letras un poco más juntas para fuerza */
+  color: var(--color-blanco);
+  margin: 60px 0;
+  position: relative;
+  
+  /* Sombra sólida para efecto 3D sin desenfoque */
+  text-shadow: 
+    3px 3px 0px #000,
+    6px 6px 0px rgba(118, 0, 0, 0.3); /* Sombra rojiza sutil al fondo */
+}
+
+/* El año (2026) en rojo */
+.collection-title span {
+  color: var(--color-acento-raza);
+  /* Un pequeño resplandor solo para el año */
+  text-shadow: 0 0 20px rgba(118, 0, 0, 0.8);
+}
+
+/* Línea decorativa debajo del título */
+.collection-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 5px;
+  background-color: var(--color-acento-raza);
+  margin: 20px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(118, 0, 0, 0.5);
+}
+
+.gloves-line-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 80px;
+  padding: 40px;
+  background-color: #222;
+  border-radius: 10px;
+  border: 1px solid #333;
+}
+
+/* --- COLUMNA IZQUIERDA (CARRUSEL) --- */
+.gloves-gallery {
+  flex: 1 1 450px;
+  position: relative;
+  aspect-ratio: 4/5; 
+  background-color: #111;
+  border: 2px solid var(--color-acento-raza);
+  border-radius: 8px;
+  overflow: hidden; /* IMPORTANTE: Para que el carrusel no se salga */
+}
+
+/* Ajustamos el slider para que llene el contenedor .gloves-gallery */
+.gloves-gallery .slider-container {
+    width: 100%;
+    height: 100%;
+}
+.gloves-gallery .slider-track {
+    height: 100%;
+}
+.gloves-gallery .slide {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gloves-gallery .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta para llenar */
+    display: block;
+}
+
+
+/* --- COLUMNA DERECHA (INFO) --- */
+.gloves-info {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gloves-info h2 {
+  font-size: 2.5rem;
+  color: var(--color-blanco);
+  border-bottom: 2px solid var(--color-acento-raza);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.gloves-description {
+  color: #ccc;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.tech-specs {
+  list-style: none;
+  margin-bottom: 30px;
+  padding: 0;
+}
+
+.tech-specs li {
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+  color: #ddd;
+}
+
+.tech-specs li::before {
+  content: "➤";
+  color: var(--color-acento-raza);
+  position: absolute;
+  left: 0;
+  font-size: 0.8em;
+}
+
+/* --- SELECTOR DE VARIANTES --- */
+.variant-selector-title {
+  color: var(--color-blanco);
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.variant-options {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.variant-option {
+  width: 70px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #333;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.variant-option:hover {
+  transform: translateY(-3px);
+  background-color: #444;
+}
+
+.variant-option.selected {
+  border-color: var(--color-acento-raza);
+  background-color: #000;
+  box-shadow: 0 0 10px rgba(118, 0, 0, 0.5);
+}
+
+.variant-option img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.variant-option span {
+  display: block;
+  font-size: 0.7rem;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* --- PRECIO Y BOTÓN --- */
+.purchase-area {
+  margin-top: auto;
+  border-top: 1px solid #444;
+  padding-top: 20px;
+}
+
+.price-tag {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-blanco);
+  margin-bottom: 15px;
+  display: block;
+}
+
+/* Botón de apertura */
+.btn-talles-modal {
+    background-color: transparent;
+    color: var(--color-blanco);
+    border: 1px solid var(--color-acento-raza);
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-talles-modal:hover {
+    background-color: var(--color-acento-raza);
+    color: #000;
+}
+
+/* El Modal: Permitir scroll si el contenido es más alto que la pantalla */
+.talles-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.85); 
+    backdrop-filter: blur(5px);
+    overflow-y: auto; /* Permite scroll vertical en el fondo si es necesario */
+    padding: 20px 0;  /* Espacio extra arriba y abajo */
+}
+
+/* Contenido del Modal: Ajuste de altura dinámica */
+.talles-modal-content {
+    position: relative;
+    background-color: #1a1a1a;
+    margin: 20px auto; /* Centrado con margen */
+    padding: 40px 20px 20px 20px; /* Más espacio arriba para la 'X' */
+    border: 1px solid var(--color-acento-raza);
+    width: 95%;
+    max-width: 500px; /* Reducimos un poco el ancho para que no sea tan gigante */
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* La Imagen: Asegurar que no se desborde */
+.img-modal-talles {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+/* Ajuste del botón cerrar para que no tape el título */
+.close-modal {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: var(--color-blanco);
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 2100;
+}
+
+.close-modal:hover {
+    color: var(--color-acento-raza);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .gloves-line-section {
+    padding: 20px;
+    flex-direction: column;
+  }
+  .gloves-gallery {
+      aspect-ratio: 1/1; 
+      width: 100%;
+  }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+  .collection-title {
+    font-size: 2.5rem; /* Más pequeño en celular para que no se rompa */
+    letter-spacing: -1px;
+  }
+}
