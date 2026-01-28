@@ -1,0 +1,47 @@
+<button class="trigger-talles btn-flotante-talles">
+  📏 Guía de Talles
+</button>
+
+<div id="modal-talles" class="modal-talles-overlay">
+  <div class="modal-talles-content">
+    <span class="close-talles">&times;</span>
+    <h3>📏 Guía de Talles RAZA</h3>
+    <p>Medidas aproximadas de la prenda en plano.</p>
+    
+    <div class="tabs-talles">
+      <button class="tab-btn active" onclick="openTab('camisetas')">Camisetas</button>
+      <button class="tab-btn" onclick="openTab('shorts')">Shorts</button>
+    </div>
+
+    <div id="camisetas" class="tab-content active">
+      <table>
+        <thead>
+          <tr><th>Talle</th><th>Ancho (Axila)</th><th>Largo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>S</td><td>50 cm</td><td>70 cm</td></tr>
+          <tr><td>M</td><td>52 cm</td><td>72 cm</td></tr>
+          <tr><td>L</td><td>54 cm</td><td>74 cm</td></tr>
+          <tr><td>XL</td><td>56 cm</td><td>76 cm</td></tr>
+          <tr><td>XXL</td><td>59 cm</td><td>79 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="shorts" class="tab-content">
+      <table>
+        <thead>
+          <tr><th>Talle</th><th>Cintura</th><th>Largo</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>S</td><td>32 cm</td><td>42 cm</td></tr>
+          <tr><td>M</td><td>34 cm</td><td>44 cm</td></tr>
+          <tr><td>L</td><td>36 cm</td><td>46 cm</td></tr>
+          <tr><td>XL</td><td>38 cm</td><td>48 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <p class="nota-talles">Nota: Las medidas pueden variar +/- 2cm.</p>
+  </div>
+</div>

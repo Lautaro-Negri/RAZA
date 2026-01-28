@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RAZA - Tienda de Guantes</title>
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/style-sets.css" />
+    <link rel="stylesheet" href="styles/style-guantes.css" />
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <main>
+      <div class="shop-container" style="max-width: 1400px; margin: 40px auto">
+        <h1 class="collection-title">COLECCIÓN ELITE <span>2026</span></h1>
+
+        <section class="gloves-line-section" id="linea-avalon">
+          <div class="gloves-gallery">
+            <div class="slider-container">
+              <div class="slider-track">
+                <div class="slide">
+                  <img src="img/avalonrojo2.webp" alt="Detalle Avalon" />
+                </div>
+                <div class="slide">
+                  <img src="img/avalonrojo3.webp" alt="Textura Avalon" />
+                </div>
+                <div class="slide">
+                  <img src="img/avalonrojo4.webp" alt="Palma Avalon" />
+                </div>
+                <div class="slide">
+                  <img src="img/avalonrojo5.webp" alt="Palma Avalon" />
+                </div>
+                <div class="slide">
+                  <img src="img/avalonrojo6.webp" alt="Palma Avalon" />
+                </div>
+              </div>
+              <button class="slider-btn prev">&#10094;</button>
+              <button class="slider-btn next">&#10095;</button>
+              <div class="slider-dots"></div>
+            </div>
+          </div>
+
+          <div class="gloves-info">
+            <h2>LÍNEA AVALON</h2>
+            <p class="gloves-description">
+              Diseñados para el arquero moderno. Combinan un agarre de élite con
+              la palma de
+              <strong>Látex Alemán CGP de 4mm</strong> y un ajuste anatómico
+              perfecto.
+            </p>
+
+            <ul class="tech-specs">
+              <li>Linea Profesional</li>
+              <li>Palma de Latéx CGP (Contact German Latex) de 4mm</li>
+              <li>Corte hibrido negativo</li>
+              <li>Sistema 3D Feel, apliques de silicona en todo el interior</li>
+              <li>Dorso neopren tratado en alta frecuencia</li>
+              <li>
+                Alto rendimiento en condiciones climáticas secas y húmedas
+              </li>
+              <li>Muñequera elastica doble anclaje por el lado de la palma</li>
+            </ul>
+            <div class="size-guide-container">
+              <button
+                type="button"
+                class="btn-talles-modal"
+                onclick="openModal()"
+              >
+                📏 VER GUÍA DE TALLES
+              </button>
+            </div>
+
+            <div id="tallesModal" class="talles-modal">
+              <div class="talles-modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <h2>Guía de Talles - Guantes RAZA</h2>
+                <img
+                  src="img/tallesguantes.jpg"
+                  alt="Guía de talles guantes"
+                  class="img-modal-talles"
+                />
+              </div>
+            </div>
+            <span class="variant-selector-title">SELECCIONÁ TU MODELO:</span>
+
+            <div class="variant-options">
+              <div
+                class="variant-option selected"
+                onclick="selectVariant(this, 'Avalon Red', 45000)"
+              >
+                <img src="img/avalonrojo1.webp" alt="Rojo" /> <span>Red</span>
+              </div>
+              <div
+                class="variant-option"
+                onclick="selectVariant(this, 'Avalon White', 45000)"
+              >
+                <img src="img/avalon1.webp" alt="Blanco" /> <span>White</span>
+              </div>
+              <div
+                class="variant-option"
+                onclick="selectVariant(this, 'Avalon Green', 45000)"
+              >
+                <img src="img/avalonverde1.png" alt="Verde" />
+                <span>Green</span>
+              </div>
+              <div
+                class="variant-option"
+                onclick="selectVariant(this, 'Avalon Blue Ice', 45000)"
+              >
+                <img src="img/avalonazul1.png" alt="Azul" /> <span>Blue</span>
+              </div>
+              <div
+                class="variant-option"
+                onclick="selectVariant(this, 'Avalon Black', 45000)"
+              >
+                <img src="img/avalonNegro1.png" alt="Negro" />
+                <span>Black</span>
+              </div>
+            </div>
+
+            <div class="purchase-area">
+              <button
+                id="btn-buy-avalon"
+                class="btn btn-primary add-to-cart-direct"
+                data-nombre="Avalon Red"
+                data-precio="45000"
+                data-cantidad="1"
+                style="width: 100%; padding: 15px; font-size: 1.1rem"
+              >
+                AÑADIR AL CARRITO
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="gloves-line-section" id="linea-king">
+          <div class="gloves-gallery">
+            <div class="slider-container">
+              <div class="slider-track">
+                <div class="slide">
+                  <img src="img/king2.webp" alt="King Detalle 1" />
+                </div>
+                <div class="slide">
+                  <img src="img/king3.webp" alt="King Detalle 2" />
+                </div>
+                <div class="slide">
+                  <img src="img/king6.webp" alt="King Detalle 2" />
+                </div>
+                <div class="slide">
+                  <img src="img/king7.webp" alt="King Detalle 2" />
+                </div>
+                <div class="slide">
+                  <img src="img/king8.webp" alt="King Detalle 2" />
+                </div>
+                <div class="slide">
+                  <img src="img/king9.webp" alt="King Detalle 2" />
+                </div>
+              </div>
+              <button class="slider-btn prev">&#10094;</button>
+              <button class="slider-btn next">&#10095;</button>
+              <div class="slider-dots"></div>
+            </div>
+          </div>
+
+          <div class="gloves-info">
+            <h2>LÍNEA KING IMPERIAL</h2>
+            <p class="gloves-description">
+              Autoridad absoluta. Diseñado para el arquero que gobierna su área.
+              Construcción robusta para soportar los impactos más duros.
+            </p>
+
+            <ul class="tech-specs">
+              <li>Linea Profesional</li>
+              <li>Palma de Latéx CGP de 4mm</li>
+              <li>Sistema 3D Feel, apliques de silicona en todo el interior</li>
+              <li>
+                Dorso en tejido elastico ligero y transpirable + zona de golpeo
+                en Latex tratado en alta frecuencia
+              </li>
+              <li>Muñequera elastica de doble giro opcional</li>
+              <li>
+                Alto rendimiento en condiciones climáticas secas y húmedas
+              </li>
+            </ul>
+            <div class="size-guide-container">
+              <button
+                type="button"
+                class="btn-talles-modal"
+                onclick="openModal()"
+              >
+                📏 VER GUÍA DE TALLES
+              </button>
+            </div>
+
+            <div id="tallesModal" class="talles-modal">
+              <div class="talles-modal-content">
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+                <h2>Guía de Talles - Guantes RAZA</h2>
+                <img
+                  src="img/tallesguantes.jpg"
+                  alt="Guía de talles guantes"
+                  class="img-modal-talles"
+                />
+              </div>
+            </div>
+
+            <span class="variant-selector-title">SELECCIONÁ TU MODELO:</span>
+
+            <div class="variant-options">
+              <div
+                class="variant-option selected"
+                onclick="selectVariant(this, 'King St.25', 52000)"
+              >
+                <img src="img/king1.webp" alt="King Black" /> <span>St.25</span>
+              </div>
+              <div
+                class="variant-option selected"
+                onclick="selectVariant(this, 'King Imperial Black', 52000)"
+              >
+                <img src="img/kingblack.webp" alt="King Black" />
+                <span>Black</span>
+              </div>
+              <div
+                class="variant-option selected"
+                onclick="selectVariant(this, 'King Imperial white', 52000)"
+              >
+                <img src="img/kingwhite.webp" alt="King Black" />
+                <span>White</span>
+              </div>
+            </div>
+
+            <div class="purchase-area">
+              <button
+                id="btn-buy-king"
+                class="btn btn-primary add-to-cart-direct"
+                data-nombre="King Imperial Black"
+                data-precio="52000"
+                data-cantidad="1"
+                style="width: 100%; padding: 15px; font-size: 1.1rem"
+              >
+                AÑADIR AL CARRITO
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script src="js/loadComponents.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
