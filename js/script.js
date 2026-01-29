@@ -180,7 +180,7 @@ function runApp() {
   }
 
   function enviarPedidoWhatsApp() {
-    const miTelefono = "5492491234567";
+    const miTelefono = "5492284727844";
     if (carrito.length === 0) {
       alert("Tu carrito está vacío.");
       return;
@@ -347,5 +347,6 @@ function runApp() {
         setTimeout(() => { buyButton.innerText = originalText; }, 1000);
     }
   };
+
 
 } // FIN RUNAPP
