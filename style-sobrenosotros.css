@@ -1,0 +1,96 @@
+/* =================================== */
+/* 17. ESTILOS PÁGINA "SOBRE NOSOTROS" */
+/* =================================== */
+
+.about-hero-container {
+  /* --- LA CLAVE: EL FONDO --- */
+  /* Esta línea asume que guardaste la imagen del PDF */
+  /* como 'fondo-nosotros.jpg' en tu carpeta 'RAZAWEB/img/' */
+  background-image: url("../img/fondo-nosotros.jpg");
+  
+  background-size: cover; /* Cubre todo el div */
+  background-position: center center; /* Centra la imagen */
+  background-repeat: no-repeat;
+
+  /* --- Diseño del contenedor --- */
+  max-width: 1300px; /* Ancho máximo */
+  min-height: 60vh; /* Altura mínima para que se vea bien */
+  margin: 40px auto; /* Centrado en la página */
+  padding: 60px; /* Espacio interno (aire) */
+  border-radius: 8px;
+  border: 1px solid var(--color-gris-claro);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  /* Hacemos que el texto se alinee a la izquierda */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.about-text-content {
+  /* El contenedor del texto */
+  color: var(--color-blanco);
+
+  /* --- LA CLAVE 2: EL ANCHO --- */
+  /* Hacemos que el texto ocupe solo la mitad izquierda (aprox) */
+  /* para no tapar el logo del fondo en la derecha. */
+  max-width: 60%;
+}
+
+.about-text-content h2 {
+  font-size: 2.5rem;
+  color: var(--color-blanco);
+  margin-bottom: 20px;
+}
+
+.about-text-content p {
+  font-size: 1.15rem; /* Texto un poco más grande para leer fácil */
+  line-height: 1.7;
+  margin-bottom: 20px;
+  color: #e0e0e0; /* Un blanco no tan puro, más suave */
+}
+
+.about-text-content p strong {
+  color: var(--color-blanco);
+  font-weight: 700;
+}
+
+/* El último párrafo, para darle más énfasis */
+.about-text-content .highlight-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-style: oblique;
+  color: var(--color-blanco);
+}
+
+/* --- Responsive para Móviles --- */
+@media (max-width: 900px) {
+  .about-hero-container {
+    padding: 40px 20px;
+    /* En móvil, la imagen de fondo se centrará. */
+    /* Hacemos que el texto ocupe más espacio */
+    background-position: 80% 50%; /* Mueve el logo más al borde derecho */
+  }
+
+  .about-text-content {
+    max-width: 100%; /* Ocupa todo el ancho en móvil */
+  }
+}
+
+@media (max-width: 600px) {
+    .about-text-content {
+      /* Para que se lea mejor en pantallas chicas sobre el fondo */
+      padding: 20px;
+      background-color: rgba(26, 26, 26, 0.7); /* Fondo oscuro semitransparente */
+      border-radius: 8px;
+      backdrop-filter: blur(4px); /* Efecto vidrio esmerilado */
+    }
+
+    .about-text-content h2 {
+        font-size: 2rem;
+    }
+
+    .about-text-content p {
+        font-size: 1rem;
+    }
+}

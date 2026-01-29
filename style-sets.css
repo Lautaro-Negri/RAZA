@@ -1,0 +1,736 @@
+/* =================================== */
+/* 10. ESTILOS DE LA TIENDA           */
+/* =================================== */
+
+.shop-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.shop-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--color-blanco);
+  text-shadow: 0px 2px 6px rgba(0, 0, 0, 0.8);
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--color-acento-raza);
+}
+
+.product-grid {
+  display: flex; /* <-- CAMBIO 1: Usamos flexbox */
+  flex-wrap: wrap; /* <-- CAMBIO 2: Permitimos que los items bajen de línea */
+  justify-content: center; /* <-- CAMBIO 3: ¡Esta es la magia! Centra los items */
+  gap: 15px;
+}
+
+.product-card {
+  background-color: var(--color-gris-claro);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--color-acento-raza);
+  justify-content: space-between;
+  /* --- ¡AÑADE ESTAS 3 LÍNEAS! --- */
+  flex-grow: 1; /* Le permite crecer (el '1fr') */
+  flex-shrink: 1; /* Le permite achicarse */
+  flex-basis: 200px; /* Su tamaño base (el 'min' de 200px) */
+  max-width: 300px;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  max-height: 250px;
+  object-fit: contain;
+  margin: 0 auto 15px auto;
+  padding: 10px;
+}
+
+.product-info {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-info h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  text-align: center;
+  color: var(--color-blanco);
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--color-acento-raza);
+  margin-bottom: 15px;
+}
+
+.product-info .btn {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* =================================== */
+/* 11. NUEVA SECCIÓN PRESENTACIÓN SET  */
+/* (Versión Overlay GRANDE)            */
+/* =================================== */
+
+.set-presentation-header {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: var(--color-negro-raza);
+  border-radius: 8px;
+  border: 1px solid var(--color-gris-claro);
+  align-items: center;
+}
+
+.presentation-text {
+flex: 1;
+  color: #f0f0f0; /* Texto casi blanco para mayor impacto */
+  font-size: 1.25rem; /* Aumentamos el tamaño (antes 1.05rem) */
+  line-height: 1.8; /* Más espaciado entre líneas para elegancia */
+  /* --- EL TOQUE DE DISEÑO --- */
+  border-left: 5px solid var(--color-acento-raza); /* Línea roja vertical a la izquierda */
+  padding-left: 30px; /* Espacio entre la línea y el texto */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el texto verticalmente respecto a la imagen */
+}
+.presentation-text p {
+  margin-bottom: 20px; /* Aire entre párrafos */
+}
+
+.presentation-text strong {
+  color: var(--color-acento-raza); /* Las palabras clave ahora van en ROJO */
+  font-weight: 700; /* Más gruesas */
+  letter-spacing: 0.2px;
+}
+
+.fabric-showcase {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fabric-showcase h3 {
+  color: var(--color-blanco);
+  font-style: oblique;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.fabric-circles {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.fabric-circle-item {
+  position: relative;
+  cursor: pointer;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--color-acento-raza);
+}
+
+.fabric-circle-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+
+.fabric-circle-item .tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  visibility: hidden;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(2px);
+  color: var(--color-blanco);
+  font-size: 0.9rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  transform: none;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.fabric-circle-item .tooltip strong {
+  color: var(--color-acento-raza);
+  font-size: 1rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.fabric-circle-item .tooltip::after {
+  display: none;
+}
+
+.fabric-circle-item:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.fabric-circle-item:hover img {
+  transform: scale(1.1);
+  filter: brightness(0.6);
+}
+
+/* =================================== */
+/* 12. GALERÍA DE IMÁGENES (CARRUSEL)  */
+/* =================================== */
+
+.set-gallery {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid var(--color-gris-claro);
+}
+
+.set-gallery h3 {
+  font-size: 1.8rem;
+  font-style: oblique;
+  color: var(--color-blanco);
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--color-gris-claro);
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  height: 1050px;
+  /* Eliminado: background-color: var(--color-gris-claro); */ 
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* <-- CAMBIO CLAVE AQUÍ: Ahora cubre el espacio */
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(26, 26, 26, 0.6);
+  color: var(--color-blanco);
+  border: none;
+  padding: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.2s ease;
+}
+
+.slider-btn:hover {
+  background-color: var(--color-acento-raza);
+}
+
+.slider-btn.prev {
+  left: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+.slider-btn.next {
+  right: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.slider-dot.active {
+  background-color: var(--color-acento-raza);
+}
+
+/* =================================== */
+/* 13. ESTILOS DE INPUT EN TARJETA     */
+/* =================================== */
+
+/* Vista de añadir con cantidad (para los sets) */
+.add-with-qty-view {
+  width: 100%;
+  margin-top: auto; /* Empuja al fondo de la card */
+  padding-top: 15px; /* Espacio arriba */
+}
+
+.quantity-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.quantity-area label {
+  color: var(--color-blanco);
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
+
+.quantity-input {
+  width: 80px;
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  color: var(--color-negro-raza);
+}
+
+/* Botón de añadir (en la card de set) */
+.add-with-qty-view .btn-add-with-qty {
+  width: 100%;
+}
+
+/* =================================== */
+/* 20. ESTILOS HOTSPOT PARA SET POTRERO */
+/* =================================== */
+
+.fabric-hotspot-container {
+  flex: 1;
+  position: relative; /* Indispensable para que los hotspots floten dentro */
+  
+  /* --- CAMBIOS IMPORTANTES --- */
+  width: 100%;
+  height: auto; /* La altura ahora es automática */
+  min-height: 0; /* Eliminamos la altura forzada anterior */
+  background: none !important; /* Nos aseguramos que no haya fondo */
+  border: 1px solid var(--color-gris-claro);
+  border-radius: 8px;
+/* ▼▼▼ EL CAMBIO CLAVE ▼▼▼ */
+  overflow: visible; /* Permite que las tarjetas "vuelen" fuera de la caja */
+  z-index: 10; /* Asegura que esté por encima de otros elementos si se solapan */
+  line-height: 0; /* Elimina un pequeño espacio blanco fantasma debajo de la imagen */
+
+  /* ▼▼▼ ESTO ES LO NUEVO ▼▼▼ */
+  width: 100%;             /* Ocupa el espacio disponible... */
+  max-width: 400px;        /* ...¡PERO HASTA AQUÍ! (Cambia 800px por lo que quieras) */
+  margin: 0 auto;          /* Esto CENTRA el recuadro si es más chico que la pantalla */
+}
+
+/* --- NUEVA CLASE PARA LA IMAGEN BASE --- */
+.hotspot-base-img {
+  width: 100%;      /* Ocupa todo el ancho disponible del contenedor */
+  height: auto;     /* Calcula la altura automáticamente según la imagen */
+  display: block;
+}
+
+.hotspot {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  
+  /* --- Borde temporal PARA QUE PUEDAS VERLOS --- */
+  border: 2px dashed white; 
+  /* --- (Elimina la línea de arriba cuando termines) --- */
+
+  /* Animación de pulso para llamar la atención */
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+/* Define la info oculta */
+.hotspot-info {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  bottom: 120%; /* Aparece arriba del hotspot */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  
+  background-color: var(--color-negro-raza);
+  color: var(--color-blanco);
+  border: 2px solid var(--color-acento-raza);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 100;
+  text-align: left;
+}
+
+/* Muestra la info al hacer hover en el hotspot */
+.hotspot:hover .hotspot-info {
+  display: block;
+}
+
+.hotspot:hover {
+  animation: none; /* Detiene la animación al hacer hover */
+}
+
+.hotspot-info img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.hotspot-info strong {
+  color: var(--color-blanco);
+  font-size: 1.1rem;
+  display: block;
+  margin-bottom: 5px;
+}
+.hotspot-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0;
+  line-height: 1.4;
+}
+
+
+/* --- ★★★ ZONA DE POSICIONAMIENTO ★★★ --- */
+/* Aquí ajustas dónde aparece cada hotspot */
+
+.hotspot-1 {
+  top: 40%;
+  left: 50%;
+  /* (Ajusta 'top' y 'left' para ponerlo sobre el pecho) */
+}
+
+.hotspot-2 {
+  top: 70%;
+  left: 30%;
+  /* (Ajusta 'top' y 'left' para ponerlo sobre el short, 
+     aunque la imagen de fondo no tiene short, 
+     puedes moverlo a otra parte de la camiseta) */
+}
+
+
+/* Animación de pulso */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+  }
+}
+
+
+/* --- Responsive para Móvil --- */
+@media (max-width: 768px) {
+  .set-presentation-header {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .fabric-circles {
+    gap: 15px;
+  }
+
+  .fabric-circle-item {
+    width: 110px;
+    height: 110px;
+  }
+
+  .fabric-circle-item .tooltip {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+  .fabric-circle-item .tooltip strong {
+    font-size: 0.9rem;
+  }
+  .gallery-item {
+    width: 280px;
+    height: 340px;
+  }
+  .slide {
+    height: 400px;
+  }
+
+  .slider-btn {
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+
+  /* --- MÓVIL: DETALLE PRODUCTO --- */
+  .product-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .product-detail-info h3 {
+    font-size: 1.4rem;
+  }
+}
+
+/* =================================== */
+/* 14. ESTILOS TÍTULO DE LÍNEA GUANTES */
+/* =================================== */
+
+.presentation-text .linea-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: oblique;
+  color: var(--color-acento-raza);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.presentation-text .linea-titulo strong {
+  color: inherit;
+  font-weight: inherit;
+}
+
+/* =================================== */
+/* 15. ESTILOS PÁGINA DETALLE PRODUCTO */
+/* =================================== */
+
+.product-detail-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* <-- CAMBIADO */
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.product-detail-info {
+  color: var(--color-blanco);
+  background-color: var(--color-negro-raza); /* <-- FONDO AÑADIDO */
+  padding: 30px; /* <-- PADDING AÑADIDO */
+  border-radius: 8px; /* <-- BORDES AÑADIDOS */
+}
+.product-detail-info h3 {
+  font-size: 1.6rem;
+  color: var(--color-blanco);
+  font-style: oblique;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--color-gris-claro);
+}
+
+.product-detail-info h3:first-of-type {
+  margin-top: 0;
+}
+
+.product-detail-info p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.product-specs {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.product-specs li {
+  font-size: 1rem;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.product-specs li::before {
+  content: '✓';
+  color: var(--color-acento-raza);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* =================================== */
+/* 16. ESTILOS BOTÓN AÑADIR DIRECTO    */
+/* =================================== */
+
+.direct-add-container {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-gris-claro);
+}
+
+/* =========================================
+   NUEVO ESTILO: GRILLA Y TARJETAS PREMIUM
+   ========================================= */
+
+/* Ajuste del contenedor principal para dar más aire */
+.premium-shop-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Encabezado minimalista */
+.shop-header-minimal {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.shop-header-minimal p {
+    color: #ccc;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grilla responsive optimizada */
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Tarjetas más anchas */
+    gap: 40px; /* Más espacio entre productos */
+}
+
+/* --- TARJETA PREMIUM --- */
+.product-card-premium {
+    background-color: var(--color-negro-raza);
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto de borde brillante al pasar el mouse */
+.product-card-premium:hover {
+    border-color: var(--color-acento-raza);
+    box-shadow: 0 10px 30px rgba(118, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Contenedor de imagen con efecto zoom */
+.premium-image-box {
+    width: 100%;
+    height: 350px; /* Altura fija para uniformidad */
+    overflow: hidden;
+    position: relative;
+    background-color: #222; /* Fondo por si la imagen es transparente */
+}
+
+.premium-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la foto llene el cuadro */
+    transition: transform 0.6s ease;
+}
+
+/* Zoom suave al hover */
+.product-card-premium:hover .premium-image-box img {
+    transform: scale(1.1);
+}
+
+/* Etiqueta flotante (opcional) */
+.premium-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--color-acento-raza);
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+/* Info del producto */
+.premium-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.premium-info h3 {
+    font-size: 1.5rem;
+    color: var(--color-blanco);
+    margin-bottom: 10px;
+    font-style: oblique;
+    text-transform: uppercase;
+}
+
+.premium-description {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Input y Botón integrados */
+.premium-actions {
+    margin-top: auto;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.premium-actions .add-with-qty-view {
+    margin-top: 0;
+    padding-top: 0;
+}

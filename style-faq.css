@@ -1,0 +1,98 @@
+/* =================================== */
+/* 14. ESTILOS PÁGINA "PREGUNTAS" (FAQ) */
+/* =================================== */
+
+.faq-container {
+  max-width: 900px; /* Un poco más ancho que el form */
+  margin: 40px auto;
+  padding: 20px;
+  color: var(--color-blanco);
+}
+
+.faq-container h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: var(--color-blanco);
+}
+
+.faq-subtitulo {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  color: #ccc; /* Un gris claro para el subtítulo */
+}
+
+/* El contenedor de todos los items */
+.accordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Cada item (pregunta + respuesta) */
+.faq-item {
+  background-color: var(--color-negro-raza);
+  border: 1px solid var(--color-gris-claro);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  overflow: hidden; /* Para los bordes redondeados */
+  transition: background-color 0.2s ease;
+}
+
+/* Estilo al pasar el mouse por encima */
+.faq-item:hover {
+  background-color: #111; /* Un negro apenas más claro */
+}
+
+/* La pregunta (la parte siempre visible y clicable) */
+.faq-question {
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-blanco);
+  cursor: pointer;
+  position: relative; /* Necesario para el ícono + */
+  
+  /* Oculta la flecha/triángulo por defecto */
+  list-style: none; 
+}
+
+/* Oculta la flecha en todos los navegadores */
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+.faq-question::marker {
+  display: none;
+}
+
+/* Crea nuestro propio ícono '+' */
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--color-acento-raza); /* Color acento */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Gira el ícono '+' a 'x' cuando se abre */
+details[open] > .faq-question::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* La respuesta (la parte que se oculta) */
+.faq-answer {
+  padding: 0 20px 20px 20px;
+  color: #ccc; /* Texto un poco más suave */
+  line-height: 1.6;
+  border-top: 1px solid var(--color-gris-claro);
+  margin: 0 20px; /* Márgenes internos para alinear con la pregunta */
+  padding-top: 20px;
+}
+
+.faq-answer p {
+  margin: 0; /* Resetea el margen del párrafo */
+}

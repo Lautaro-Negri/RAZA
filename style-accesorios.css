@@ -1,0 +1,213 @@
+/* =================================== */
+/* ESTILOS NUEVOS ACCESORIOS (DARK)    */
+/* =================================== */
+
+.accessories-header {
+  background-color: var(--color-negro-raza);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 60px 20px;
+  border-bottom: 4px solid var(--color-acento-raza);
+  margin-bottom: 40px;
+}
+
+.accessories-header h2 {
+  font-size: 3rem;
+  font-style: oblique;
+  margin-bottom: 10px;
+}
+
+.accessories-header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.catalog-container {
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  padding: 0 20px;
+}
+
+.category-title {
+  font-size: 2rem;
+  color: var(--color-blanco);
+  border-bottom: 1px solid #444; /* Línea divisoria más sutil */
+  padding-bottom: 10px;
+  margin: 40px 0 30px 0;
+  font-style: oblique;
+}
+
+/* --- GRID SYSTEM --- */
+.accessories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+/* --- TARJETA DE PRODUCTO (MODO DARK) --- */
+.access-card {
+  background-color: var(--color-negro-raza); /* Fondo Negro RAZA */
+  border: 1px solid #333; /* Borde sutil */
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.access-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Sombra más oscura */
+  border-color: var(--color-acento-raza); /* Borde rojo al pasar el mouse */
+}
+
+/* Zona de Imagen */
+.card-image {
+  width: 100%;
+  height: 300px;
+  background-color: var(--color-gris-claro); /* Fondo gris oscuro para la foto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  border-bottom: 1px solid #333;
+}
+
+.card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.5)); /* Sombra a la prenda */
+}
+
+/* Badge (Etiqueta) */
+.badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--color-acento-raza); /* Rojo para destacar */
+  color: var(--color-blanco);
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* Contenido de Texto */
+.card-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: var(--color-blanco);
+}
+
+.card-content h3 {
+  font-size: 1.4rem;
+  color: var(--color-blanco); /* Título en Blanco */
+  margin-bottom: 10px;
+  font-style: oblique;
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #ccc; /* Texto gris claro */
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* --- ZONA DE ACCIÓN (INPUT + BOTÓN) --- */
+.add-with-qty-view {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  margin-top: auto;
+}
+
+.qty-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #333; /* Fondo oscuro para el input */
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+.qty-control label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #aaa;
+  margin-bottom: 2px;
+}
+
+.quantity-input {
+  width: 50px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--color-blanco); /* Número en blanco */
+  outline: none;
+}
+
+/* Quitamos las flechas del input number en algunos navegadores para estética */
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.btn-add-with-qty {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- ITEMS CUSTOM (Banderas, etc.) --- */
+.custom-item {
+  border: 1px solid #444;
+  background-color: #1e1e1e; /* Un pelín más claro que el negro puro */
+}
+.custom-item .card-image {
+  background-color: #222; /* Fondo más oscuro */
+}
+.custom-item h3 {
+  color: var(--color-acento-raza); /* Título en rojo para diferenciar */
+}
+.custom-item:hover {
+  border-color: var(--color-blanco);
+}
+
+.full-width {
+  width: 100%;
+  text-align: center;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .accessories-header h2 {
+    font-size: 2.2rem;
+  }
+  .card-image {
+    height: 250px;
+  }
+  .accessories-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
