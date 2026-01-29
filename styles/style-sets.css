@@ -612,3 +612,125 @@ flex: 1;
   padding-top: 20px;
   border-top: 1px solid var(--color-gris-claro);
 }
+
+/* =========================================
+   NUEVO ESTILO: GRILLA Y TARJETAS PREMIUM
+   ========================================= */
+
+/* Ajuste del contenedor principal para dar más aire */
+.premium-shop-container {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Encabezado minimalista */
+.shop-header-minimal {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.shop-header-minimal p {
+    color: #ccc;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grilla responsive optimizada */
+.premium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Tarjetas más anchas */
+    gap: 40px; /* Más espacio entre productos */
+}
+
+/* --- TARJETA PREMIUM --- */
+.product-card-premium {
+    background-color: var(--color-negro-raza);
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Efecto de borde brillante al pasar el mouse */
+.product-card-premium:hover {
+    border-color: var(--color-acento-raza);
+    box-shadow: 0 10px 30px rgba(118, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Contenedor de imagen con efecto zoom */
+.premium-image-box {
+    width: 100%;
+    height: 350px; /* Altura fija para uniformidad */
+    overflow: hidden;
+    position: relative;
+    background-color: #222; /* Fondo por si la imagen es transparente */
+}
+
+.premium-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la foto llene el cuadro */
+    transition: transform 0.6s ease;
+}
+
+/* Zoom suave al hover */
+.product-card-premium:hover .premium-image-box img {
+    transform: scale(1.1);
+}
+
+/* Etiqueta flotante (opcional) */
+.premium-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--color-acento-raza);
+    color: white;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+/* Info del producto */
+.premium-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.premium-info h3 {
+    font-size: 1.5rem;
+    color: var(--color-blanco);
+    margin-bottom: 10px;
+    font-style: oblique;
+    text-transform: uppercase;
+}
+
+.premium-description {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Input y Botón integrados */
+.premium-actions {
+    margin-top: auto;
+    border-top: 1px solid #333;
+    padding-top: 20px;
+}
+
+.premium-actions .add-with-qty-view {
+    margin-top: 0;
+    padding-top: 0;
+}

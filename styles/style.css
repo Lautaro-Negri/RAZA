@@ -673,7 +673,7 @@ main {
 }
 
 .collection-title span {
-  color: var(--color-acento-raza);
+  color: #FF0000;
   /* Un pequeño resplandor solo para el año */
   text-shadow: 0 0 20px rgba(118, 0, 0, 0.8);
 }
