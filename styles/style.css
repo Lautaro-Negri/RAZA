@@ -414,19 +414,74 @@ main {
 }
 
 /* =================================== */
-/* 7. NUEVO MAIN - BANNER HERO         */
+/* 7. MAIN - BANNER HERO "PARTIDO"     */
 /* =================================== */
 
-.hero-banner-link {
-  display: block;
-  width: 100%;
-  line-height: 0;
+/* Contenedor principal del enlace */
+.hero-split-container {
+    display: flex; /* Pone las dos mitades una al lado de la otra */
+    width: 100%;
+    /* Altura ajustable: cambiala según tu imagen.
+       Para una imagen 16:9 en pantalla completa, usa aprox 56vw.
+       Para un banner más angosto, prueba con 400px o 500px. */
+    height: 55vw; 
+    max-height: 600px; /* Límite para que no sea gigante en monitores grandes */
+    overflow: hidden; /* Esconde lo que se sale mientras entran */
+    position: relative;
+    background-color: var(--color-negro-raza); /* Fondo negro mientras carga */
+    text-decoration: none;
 }
 
-.hero-banner-img {
-  width: 100%;
-  height: auto;
-  display: block;
+/* Estilos comunes para ambas mitades */
+.hero-half {
+    flex: 1; /* Cada una ocupa el 50% del ancho */
+    height: 100%;
+    /* AQUÍ VA TU IMAGEN */
+    /* Asegúrate que la ruta sea correcta desde el archivo CSS */
+    background-image: url('../img/2.png'); 
+    background-size: 200% 100%; /* ¡TRUCO! La imagen se estira al doble de ancho */
+    background-repeat: no-repeat;
+    
+    /* La animación de entrada (dura 1.2 segundos) */
+    animation: splitEntrance 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    
+    /* Transición para el efecto hover */
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+/* --- Configuración específica de cada lado --- */
+
+.hero-left {
+    background-position: left center; /* Muestra la mitad izquierda de la foto */
+    /* Empieza fuera de la pantalla a la izquierda */
+    transform: translateX(-101%); 
+}
+
+.hero-right {
+    background-position: right center; /* Muestra la mitad derecha */
+    /* Empieza fuera de la pantalla a la derecha */
+    transform: translateX(101%);
+}
+
+/* --- Animación de Entrada --- */
+@keyframes splitEntrance {
+    to {
+        transform: translateX(0); /* Ambas terminan en el centro (0) */
+    }
+}
+
+/* --- Interacción al pasar el mouse (Hover) --- */
+/* Al pasar el mouse sobre el contenedor, las mitades reaccionan */
+.hero-split-container:hover .hero-left {
+    /* Se separa un poquito a la izquierda y se ilumina */
+    transform: translateX(-2%);
+    filter: brightness(1.15);
+}
+
+.hero-split-container:hover .hero-right {
+    /* Se separa un poquito a la derecha y se ilumina */
+    transform: translateX(2%);
+    filter: brightness(1.15);
 }
 
 /* =================================== */
@@ -828,4 +883,9 @@ main {
     font-weight: bold;
     border-bottom: none;
   }
+  .hero-split-container {
+        /* En celular, que sea más alto para que se vea bien */
+        height: 70vw; 
+        max-height: 400px;
+    }
 }
